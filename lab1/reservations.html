@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niner Coffee House</title>
+    <meta name="author" content="Jaden Shaw">
+    <link rel="favicon" href="images/favicon.ico">
+  </head>
+
+  <body>
+    <header>
+      <h1>Niner Coffee House</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="reservations.html">Reservations</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <img src="images/shop.jpg" alt="shop" width="400" height="533">
+      <h2>Make a Reservation!</h2>
+      <form action="#">
+        <input type="text" id="name" name="name" placeholder="Name" required>
+        <br>
+        <input type="email" id="email" name="email" placeholder="Email" required>
+        <br>
+        <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
+        <br>
+        <input type="number" name="guests" id="guests" placeholder="Number of guests in your party" min="1" max="20" required>
+        <br>
+        <input type="datetime-local" name="datetime" id="datetime" required>
+        <br>
+        <textarea name="request" id="request" placeholder="Special Request" cols="30" rows="3"></textarea>
+        <br>
+        <button>Reserve</button>
+      </form>
+    </main>
+
+    
+    <footer>
+        <p style="font-size: smaller;">©2022 Niner Coffee House. All rights reserved</p>
+    </footer>
+  </body>
+</html>
