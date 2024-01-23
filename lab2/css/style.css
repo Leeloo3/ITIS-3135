@@ -14,7 +14,32 @@ body {
   min-height: 100vh;
 }
 
+input, textarea {
+  font: inherit;
+}
+
+a {
+  color: #0c3b23;
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
 /*Header Area Styles*/
+
+header {
+  background-color: #0c3b2e;
+  color: #fff;
+}
+
+h1 {
+  padding-top: 0.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0;
+  padding-bottom: 0;
+}
 
 /*Main Content Area Styles*/
 
