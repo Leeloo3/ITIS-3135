@@ -14,7 +14,8 @@ body {
   min-height: 100vh;
 }
 
-input, textarea {
+input,
+textarea {
   font: inherit;
 }
 
@@ -34,11 +35,35 @@ header {
   color: #fff;
 }
 
-h1 {
+header h1 {
   padding-top: 0.5rem;
   padding-left: 0.5rem;
   padding-right: 0;
   padding-bottom: 0;
+}
+
+header nav ul {
+  text-align: right;
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 1rem;
+  padding-bottom: 0.5;
+}
+
+header nav li {
+  font-size: 1.5rem;
+}
+
+header nav a {
+  color: white;
+
+  /* What does this do? */
+  transition: border-bottom 0.3s ease;
+}
+
+header nav a:hover,
+header nav a:active {
+  border-bottom: 4px solid #6d9773;
 }
 
 /*Main Content Area Styles*/
