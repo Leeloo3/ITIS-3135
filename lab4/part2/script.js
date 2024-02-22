@@ -135,4 +135,4 @@ function updateAlbum(id, prop, value) {
 // updateAlbum(2975, "tracks", "Free");
 // updateAlbum(1257, "tracks", "");
 // updateAlbum(3257, "artist", "David Bowie");
-// console.log(albumCollection);
+console.log(albumCollection);
