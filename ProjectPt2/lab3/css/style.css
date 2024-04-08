@@ -1,0 +1,323 @@
+/* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-sDGM5i/B8CvIsHVJ7sBxO4Dqu6bh9cXzHys63jTm9FmLZfvOT5vVp2lpxm6X+IUDWsRWumHliqgFfslcTgV3/g==" crossorigin="anonymous" referrerpolicy="no-referrer" /> */
+
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
+/*Variables*/
+
+:root {
+  --primary-color: #867436;
+  --primary-bg-color: #ccb27c;
+  --light-color: #eae0c9;
+  --pop-color: #ffba00;
+}
+
+/*================================================*/
+/*Reset and General Styles*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: helvetica, sans-serif;
+  min-height: 100vh;
+  line-height: 1.5;
+  background: linear-gradient(
+    to bottom,
+    var(--primary-bg-color),
+    var(--light-color)
+  );
+  color: var(--primary-color);
+}
+
+input,
+textarea {
+  font: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+header,
+footer {
+  background-color: var(--primary-color);
+  color: white;
+}
+/*================================================*/
+/*Utility Classes*/
+.font-sm {
+  font-size: 0.8rem;
+}
+
+.right-indent {
+  padding-left: 1em;
+}
+
+.center-text {
+  text-align: center;
+}
+/*================================================*/
+/*Overall layouts*/
+
+body {
+  display: grid;
+  grid-template-rows: 6rem 1fr 3rem;
+  grid-template-columns: 10% 80% 10%;
+}
+
+header {
+  grid-row: 1;
+  grid-column: 1/4;
+  height: 6rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+footer {
+  grid-row: 3;
+  grid-column: 1/4;
+  height: 3rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+/*================================================*/
+/*Header styles*/
+h1 {
+  padding-left: 1rem;
+}
+
+nav li {
+  padding-right: 1rem;
+  font-size: 1.5rem;
+}
+
+nav a {
+  color: var(--light-color);
+}
+
+nav a:hover,
+nav a:active {
+  border-bottom: 4px solid var(--primary-bg-color);
+}
+/*================================================*/
+/*Header layouts*/
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+/*================================================*/
+/*Main styles*/
+
+main {
+  padding: 1rem;
+  background-color: var(--light-color);
+  grid-row: 2;
+  grid-column: 2;
+}
+
+h2 {
+  color: var(--pop-color);
+  margin-bottom: 1rem;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+/*================================================*/
+/*Home page content*/
+
+main li {
+  background-image: url("../images/logo.png");
+  background-repeat: no-repeat;
+  background-size: 1em 1em;
+  padding-left: 1.5em;
+  background-position: 0 0.2em;
+}
+
+.nav-bar {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#search {
+  display: flex;
+  padding-right: 100px;
+  margin-right: 50px;
+  margin-left: -130px;
+  border-radius: 15px;
+}
+
+#Sort {
+  position: absolute;
+  top: 58px;
+  left: 205px;
+}
+
+main a {
+  color: var(--primary-bg-color);
+}
+
+main a:hover,
+main a:active {
+  border-bottom: 2px solid var(--primary-bg-color);
+}
+
+.books {
+  width: 450px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Distribute items evenly */
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: calc(50% - 20px); /* 50% width with margin for space between columns */
+  height: 200px; /* Set height as needed */
+  margin-bottom: 40px; /* Margin for space between rows */
+  background-color: rgb(79, 59, 29); /* Background color for the boxes */
+  /* position: relative; */
+}
+
+.current-books {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 110px;
+  gap: 90px;
+}
+
+#reading {
+  padding-right: 40px;
+}
+
+#Review {
+  margin: 11px;
+}
+/*================================================*/
+/*Menu page content*/
+
+table {
+  border: 3px solid var(--primary-bg-color);
+  border-collapse: collapse;
+  width: 100%;
+  margin-inline: auto;
+}
+
+thead tr {
+  background-color: var(--primary-bg-color);
+  color: var(--light-color);
+}
+
+th,
+td {
+  padding: 0.3rem;
+  text-align: center;
+}
+
+tbody tr:nth-child(4n) {
+  border-bottom: 3px solid var(--primary-bg-color);
+}
+
+caption {
+  font-weight: bold;
+  text-align: right;
+  font-style: italic;
+}
+/*================================================*/
+/*Reservations page*/
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="datetime-local"],
+input[type="number"],
+textarea {
+  border: 2px solid var(--primary-color);
+  margin-bottom: 0.5em;
+  width: 100%;
+  padding: 0.6em;
+}
+
+textarea {
+  height: 8em;
+}
+
+input[type="submit"] {
+  background-color: var(--primary-color);
+  color: var(--light-color);
+  font-size: 1.25rem;
+  font-weight: bold;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+}
+/*================================================*/
+/*Style 'container-content' class*/
+.container-content {
+  padding: 0.5rem;
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px 0px rgba(17, 12, 46, 0.8);
+}
+
+.container-img,
+.container-content {
+  flex-basis: 300px;
+  flex-grow: 1;
+  max-width: 500px;
+}
+
+.btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+}
+
+/*================================================*/
+/*Main content area layouts*/
+
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.center-text {
+  text-align: left;
+}
+
+/*================================================*/
+/*Footer layouts*/
+
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
