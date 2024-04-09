@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Your Name" />
+    <title>Inkwell Insights</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+    <!-- Change this icon -->
+    <!-- <link rel="stylesheet" href="css/style.css" /> -->
+    <script src="disregard.js"></script>
+    <title>Inkwell Insights login page</title>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
+
+      :root {
+        --primary-color: #5eb6dc;
+        --primary-color-dark: #1268a3;
+        --white: #fff;
+        --gradient: linear-gradient(
+          to bottom,
+          var(--primary-color),
+          var(--primary-color-dark)
+        );
+      }
+
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Comic Neue", cursive;
+      }
+
+      .container {
+        min-height: 100vh;
+        background-image: linear-gradient(
+            rgba(255, 255, 255, 0.25),
+            rgba(255, 255, 255, 0.25)
+          ),
+          url(images/dessert.jpg);
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .login_container {
+        min-height: 600px;
+        width: 100%;
+        max-width: 450px;
+        background-image: url(images/coffee.jpg);
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
+        border-radius: 10px;
+      }
+
+      .top_content {
+        padding: 2rem;
+        display: grid;
+        place-content: end;
+        justify-content: center;
+        gap: 2rem;
+        text-align: center;
+      }
+
+      .top_content p {
+        font-size: 1.2rem;
+        color: var(--white);
+      }
+
+      .top_content button {
+        padding: 0.5rem 2rem;
+        max-width: fit-content;
+        margin: auto;
+        outline: none;
+        border: none;
+        font-size: 1rem;
+        font-weight: 700;
+        font-family: "Comic Neue", cursive;
+        border-radius: 2rem;
+        color: var(--primary-color-dark);
+        background-color: var(--white);
+        cursor: pointer;
+      }
+
+      .top_content h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--white);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="login_container">
+        <div class="top_content">
+          <h1>Welcome Back!</h1>
+          <p>Don't have an account?</p>
+          <button>Sign Up</button>
+        </div>
+        <div class="bottom_content">
+          <form action="#">
+            <div class="form_group">
+              <span></span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <p class="font-sm center-text">
+        &copy;2023 Inkwell Insights. All rights reserved.
+      </p>
+    </footer>
+  </body>
+</html>
