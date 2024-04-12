@@ -227,13 +227,13 @@ playAgainBtn.addEventListener('click', ()=>{
     questions = [];
     submitBtn.disabled = false;
 
+    // Clear any classes from previous question
     const allAnswers = questionBody.querySelectorAll('.option-item');
     allAnswers.forEach(answer => {
         answer.classList.remove('selected', 'wrong', 'correct');
     });
 
+    // Hide the score card and show the category card
     scoreCard.classList.add('hidden');
     categoryCard.classList.remove('hidden');
-
-    initGame();
 });
