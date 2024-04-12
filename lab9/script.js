@@ -55,6 +55,19 @@ function initGame() {
 
         If the user doesn't select any category, show an alert to choose a category    
     */
+
+    const selectedCategory = document.querySelector('.category-item.selected');
+    if (!selectedCategory) {
+        alert('Please choose a category!');
+        return;
+    }
+
+    const categoryId = selectedCategory.dataset.category;
+    url = `${base_url}&category=${categoryId}`;
+    categoryCard.classList.add('hidden');
+    skeletonCard.classList.remove('hidden');
+    getQuestions();
+
 }
 
 async function getQuestions() {
@@ -69,8 +82,9 @@ async function getQuestions() {
 
                 Hint: you can call the other functions to do that
             */
-        }
-        else{
+           processQuestions(data);
+            showQuestions();
+        } else {
             throw Error('Error: Cannot fetch questions from the API');
         }
     } catch (error) {
@@ -89,6 +103,27 @@ function processQuestions(data) {
         Make sure to add the correct answer to the choices at random location so that it is not always the same index
         for the right answer.
     */
+
+    questions = data.results.map(result => {
+        const questionObj = {
+            text: result.question,
+            level: result.difficulty,
+            answers: [],
+            correctAnswer: Math.floor(Math.random() * 4)
+        };
+
+        questionObj.answers[questionObj.correctAnswer] = result.correct_answer;
+
+        let index = 0;
+        result.incorrect_answers.forEach(answer => {
+            while (questionObj.answers[index] !== undefined) {
+                index = Math.floor(Math.random() * 4);
+            }
+            questionObj.answers[index] = answer;
+        });
+        return questionObj;
+    });
+    
 }
 
 function showQuestions() {
@@ -122,6 +157,10 @@ function showQuestions() {
 
         e.target.classList.add('selected');
     }));
+
+    optionElements.forEach(element => {
+        element.classList.remove('correct', 'wrong');
+    });
 }
 
 submitBtn.addEventListener('click', submitAnswer);
@@ -129,19 +168,36 @@ submitBtn.addEventListener('click', submitAnswer);
 function submitAnswer() {
     submitBtn.disabled = true;
     const answerSubmitted = questionBody.querySelector('.selected');
+    
+    if (!answerSubmitted) {
+        alert('Please select an answer before submitting.');
+        submitBtn.disabled = false;
+        return;
+    }
+
+    const selectedAnswer = answerSubmitted.textContent;
+    const correctAnswer = questions[counter].answers[questions[counter].correctAnswer];
+
+    if (selectedAnswer === correctAnswer) {
+        correct++;
+        if (questions[counter].level === "easy") {
+            score += 10;
+        } else if (questions[counter].level === "medium") {
+            score += 20;
+        } else if (questions[counter].level === "hard") {
+            score += 30;
+        }
+        answerSubmitted.classList.add('correct'); // Marking correct answer
+    } else {
+        answerSubmitted.classList.add('wrong');
+    }
+
     const allAnswers = questionBody.querySelectorAll('.option-item');
-    const correctAnswer = allAnswers[questions[counter].correctAnswer];
+    allAnswers[questions[counter].correctAnswer].classList.add('correct'); // Ensuring correct answer is marked
 
-    correctAnswer.classList.add('correct');
-
-
-    /*
-        Write your code here to check if the user submitted any answer or not. Verify the user's submitted answer and if it is correct, update necessary
-        variables. If incorrect, add 'wrong' class to the class list of 'answerSubmitted' 
-
-        Also, set a timeout for 1.5s and call the nextQuestion() function
-    */
+    setTimeout(nextQuestion, 1500);
 }
+
 
 function nextQuestion() {
     counter++;
@@ -165,5 +221,19 @@ playAgainBtn.addEventListener('click', ()=>{
     /*
         Write your code here to implement the Play Again button
     */
+    counter = 0;
+    score = 0;
+    correct = 0;
+    questions = [];
+    submitBtn.disabled = false;
 
+    const allAnswers = questionBody.querySelectorAll('.option-item');
+    allAnswers.forEach(answer => {
+        answer.classList.remove('selected', 'wrong', 'correct');
+    });
+
+    scoreCard.classList.add('hidden');
+    categoryCard.classList.remove('hidden');
+
+    initGame();
 });
